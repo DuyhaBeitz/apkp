@@ -64,7 +64,6 @@ def build():
     d8 = f'{build_tools_path}/d8'
     zipalign = f'{build_tools_path}/zipalign'
     apksigner = f'{build_tools_path}/apksigner'
-    print(build_tools_path)
 
     kotlinc_dir = subprocess.run('dirname "$(dirname "$(which kotlinc)")"', shell=True, capture_output=True, text=True).stdout.strip()
     kotlinc = f'{kotlinc_dir}/bin/kotlinc'
@@ -90,7 +89,7 @@ def build():
     subprocess.run(f'{d8} --output {build_dest}/dex \
                     --lib "{android_path}/android.jar" \
                     --lib "{kotlinc_stdlib}" \
-                    $(find appk_build/classes -name "*.class")', shell=True)
+                    $(find {build_dest}/classes -name "*.class")', shell=True)
 
 
     print(f'Building final APK inside {build_dest}...')
