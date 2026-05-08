@@ -1,19 +1,23 @@
-install:
-
-python3 -m venv venv
-./venv/bin/pip install .
-
-then run:
-venv/bin/apkp
-
-just run:
-python3 -m apkp.main
-
-
-Commands:
-
-create project - (command line menu where you specify pkg name etc. then it creates project template for you)
-
-build project - (compiles resources with aapt2, links them, compiles sources with kotlinc, builds dex using d8, builds APK with appt2, signs APK with apksigner )
-
-maybe also: deploy to connected android, test(using some emulator?)
+# apkp
+apkp is a command line tool android build system.
+right now only Kotlin supported.
+inspired by https://github.com/ajinasokan/apkc and how bloated Android Studio is
+# How to use it?
+1) Install JDk and Android SDK and setup your environment variables: ANDROID_HOME and JAVA_HOME
+2) run ```./apkp create``` to create your project. It will have the following structure:
+```
+├── myapp
+│   ├── AndroidManifest.xml
+│   ├── res
+│   │   ├── layout
+│   │   │   └── main.xml
+│   │   └── values
+│   │       └── styles.xml
+│   └── src
+│       └── com
+│           └── myapp
+│               └── MainActivity.kt
+```
+5) Write your program
+6) run ```./apkd build``` to build your APK. You will be prompted to create your signing key
+7) After that you can test ```adb install -r apkp_build/my_app_signed.apk``` or deploy your app
