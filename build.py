@@ -14,7 +14,7 @@ def check_env_path(env_var) -> str:
 
 
 def build():
-    build_dest = 'appk_build'
+    build_dest = 'apkp_build'
 
     # create template tree structure
     Path(f'{build_dest}/compiled_res').mkdir(parents=True, exist_ok=True)
