@@ -2,11 +2,13 @@
 import sys
 import create
 import build
+import test
 
 def print_help():
     print('Commands [no additional arguments]:')
     print('\tcreate')
     print('\tbuild')
+    print('\ttest')
 
 def main():
     if (len(sys.argv) != 2):
@@ -23,6 +25,8 @@ def main():
             create.create_project(project_name, app_name)
         elif sys.argv[1] == 'build':
             build.build()
+        elif sys.argv[1] == 'test':
+            test.test()
         else:
             print(f'uknown command "{sys.argv[1]}"')
 

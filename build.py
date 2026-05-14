@@ -1,16 +1,7 @@
-import json
 import subprocess
-import os
 
 from pathlib import Path
-
-def check_env_path(env_var) -> str:
-    path = os.getenv(env_var)
-    if (path == None):
-        print(f'NOT FOUND {env_var}')
-    else:
-        print(f'FOUND {env_var}')
-    return path
+import find_env
 
 
 def build():
@@ -23,8 +14,8 @@ def build():
     Path(f'{build_dest}/dex').mkdir(parents=True, exist_ok=True)
 
     # find JDK and AndroidSDK
-    JDK = check_env_path('JAVA_HOME')
-    AndroidSDK = check_env_path('ANDROID_HOME')
+    JDK = find_env.check_env_path('JAVA_HOME')
+    AndroidSDK = find_env.check_env_path('ANDROID_HOME')
 
     if (JDK == None or AndroidSDK == None): return
 
