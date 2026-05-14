@@ -4,7 +4,7 @@ right now only Kotlin supported.
 inspired by https://github.com/ajinasokan/apkc and how bloated Android Studio is
 # How to use it?
 1) Install JDk and Android SDK and setup your environment variables: ANDROID_HOME and JAVA_HOME
-2) run ```./apkp.py create``` to create your project. It will have the following structure:
+2) run ```apkp.py create``` to create your project. It will have the following structure:
 ```
 ├── myapp
 │   ├── AndroidManifest.xml
@@ -19,5 +19,6 @@ inspired by https://github.com/ajinasokan/apkc and how bloated Android Studio is
 │               └── MainActivity.kt
 ```
 5) Write your program
-6) run ```./apkd.py build``` to build your APK. You will be prompted to create your signing key
+6) run ```apkd.py build``` to build your APK. You will be prompted to create your signing key
 7) After that you can test ```adb install -r apkp_build/my_app_signed.apk``` or deploy your app
+8) You can also test using ```apkp.py test``` from inside project's directory (make sure the script is available from there)
